@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iSalon</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhIVFRUVFhcXFRUVFRUVFRUXFRUWFhUVFRUYHSggGBolHRYVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0lHR0tLS02LS0tLS0tLS0tLS0tLS0tLS0tLTctLS0tLS8tLS0tLS0tLS0tNS0tLS0tLS0tLf/AABEIAJ0BQAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//EAEAQAAEDAgMFBgQEBAUDBQAAAAEAAhEDIQQSMUFRYXGBBRMiMpHwBqGxwUJigtEUI3LhB1KSwvEzY6IVJENzg//EABkBAQEBAQEBAAAAAAAAAAAAAAABAgQDBf/EACcRAAICAgICAgEEAwAAAAAAAAABAhEDEiFBBDEiYVFCcaHwEyMy/9oADAMBAAIRAxEAPwDwVRnvoFMlk57dOqsNXybPuUY6zfGeaJzNOaKoPGeaMt097VqzNFmhPLbyGq1lwy8DAAHDX6fJqPD07OPED0/uQf0oXM0AtFhw0JPzj9KQZuuxdm6ag9OB9foheER4CBsHAo2sn38l1J0rZ7xXBVOnaVxcfWzPO7Yu32g6Gxu147hy97V59/mPNYU9kc3lS/SiiNFdRqKNPe1E4apZyCIRNFlIRNCERHNUyo3BWAhqhDxcqyNFbh4iijT3tQgNRqCE9w1970qEQZGiyJzffoo0aI3BAAG6JbhcrQAlEeIog0UW6K6jUUae9qJw15/ulihEImiykI2jRCIpzVA3RG4e+qto0Q1QulULXSN67YbmAI98FwiLldnsupMDoeew9dOau1I6PGlT1YVVqoGddgtxiInpboFoxNPU8f3Wdq2nsrOuSNdKACBsINto4e9rVixtKDI0M+tp/fkQttJtwdP2MSOgn/SpiqXhiNL+hv8AIn/QuST7PF8o5zWac0h7fEea2sbpzWUjxO5lRMw0QsuOaKvTTIuPe1HUbIPP90sUHUH3+ysK6ht6/UJZcsGxdQeN3NFHiChIzunfuTMwDrep66DYtGTdENI5Aj5/7/klNEuvb93Gb/6itLIg9PsIWRx+09FrHyeqViwtlJkCTsB9UiiySFpxD/CANp156H5BemaXFHr6OT2k+TG4Zj1sPfFcx48RW7tExp+KT0BgfT5LC4+I80j6PnZnci4uj3odqMGxWjzEwiaNFSJqAtwVhRyElQoDh4ii2qifEeaLaqQLelQnA2KUiDLaicFTETj76qAgSiPEUcoZueaoZY1R7D0+6EaothQCoRNGipExAW4K2/dRx99UM36qFAi55rbgHQ8bnSOuz6j1WMG55rVgrujgSOYBKP0XH/0jvPEtJ6H53971ghb8O6zm78pHWSPsOizVW6HeP7LOCVcH07sOPLEmbQPzDQcTJHVdHtjBdzWNBzpcxrO9i4FR7Wuc0bwBUIngun/hx2YKuKFR/wD0sMO+dOmYT3c8jLv0Li4vF98+pXOtV7332BznED0gK5I1G37ZyuX+zVdI5zRBg6ysseJ3M/VaqlXxX/zWO0X+YVV8K5hDntc0VBnZmEFzMxAfEzlJBg7YsvFIMU0eJMIs7mPugHmTJ8J6fdRlQuo7Tr9UnMpVdpyP1Sc11pIjY5h8Z5/dNp+a/wCESemxZGPuea9P2J2KKjTXxTzSotgzDQarW3Ml1gy2sX32XpCDk6R5zyqCtl9jdmVsQMzRlYYmo/SwaDlGrjLTw4hbO1Gdn4Js1agquA8jnOzuP5W0z4RxIPNeQ+LfiH+JrNpYLvcjQRPeVIfp+HMA1o5DVZsB2ZToEVazW1DqQJIZ+aD5+M9JXZjwxguD58/JyS7r9j2jO08HVYHUMFVdLZOUd3lnYS94Dtt2yLarlVq9Nxd3edr6YJdRrDK9rf8AO2LPaOCbW7TmCDppG7aPfBZMbiZrYV7fP37Gi0y18h7eUKzxRkqaMw8jJB2mcB9SduwBGynIJ5kcmkT9T6KNw4NR7QYYxzgXbGsa4gHjsgbUxtUEVHxAju2DmQT6AEni5csuODrTvkRN1bDqlzdMpmxQASrYboCVKblaIOcffVLlR50QSlCwxqeaIG6Uw3RZroBjTr0QSjpmx6JRKFDYbhE4++qVTciedEollgoWm55oQVGFKFjZv0VtNj0S81ymMNj0UKgCVdM3QEqUyrRLGvP0+6EG6p5+iAFKFmilTlpO8kj9MT8ifRDTfDpGoTMNUOSR5qb5/S+B6SIP9SrE0wPG3yO0/KdrDxHzELN88mvtHawD5YCdzYPI6HcUdd7R4SRIJtwJ27tFl7ArAh7HaECOF/8AhdLAdnd9XZTBM13hrgIsR4XvFtgDj0XjHiep1xyfFM9tgKX8J2HWq6VMUAAdsVSKdOP0ku/UV4VjTZuugjaZcLAbbB1tV9F/xKY+p/B4HDsLnOc5+RuxlNoY2ToAM+pt4UVPAYTseh/F4oiriDam0bXkeSiD83nQbtF2ZMe/x6Rx48yjFyfuT9HnqHYdHAURju0mh1R3/QwkiX1NQanKxI0G2TAXi8d2hVr1n167s1R5k7A3YGNGxoEADgn9r9uVsXVOJrwXkwxurKTNQ1g+51N1y6TtV45Gq1j6PTHF3tL2zSDfoiY6Wu6fdZy+5T6R8Lun3Xg0e6MlYm3X6rR2f2dWrnLSZmjzO0Y3+p2g5arm9r4gtLGtsTMncJ2LoDtfFvpNod93bNC5jGtIBHl8MDaLiDe5XViw7K2cebyNXqvZ0a9XB4DzkYrE7KbfIw7J+Wt+C5ePqYrGnNinmnT1bSbbl4d/F1+CZhsLSo+QS7a913Hrs6I3Em5MDeV1qKXCOGUnJ2yqIZTGSk0AbY1PM7VKlMlri7QAk8gLqYeu1xikx9Y/9tst6vMBXj34hzX0u4bTygF5dVaYGoYcogE2tMxzVMnOw+IhsuMAC5K6PZ9F7GjGP816eCp/5nuEd6eDR4jxgcl9mdhPd4q8Dc3zEcY8o9CUNXEvcSXuLjSp93TBjwZsoIaANgL78AsZJaxs3jjs6MmIqBrRSYfC0+J217truWwJJeSJ0AMNGwak8zvPFXRolxgRvJ2ADUk7AEVRwmG+UabzvceJ+wC5F+DtFH7hMpmx5ISLplPQrTCElU3VGQqYEIU9UUx4QQgBYiP3UYERFygCZMFLKdT0PRLIQoDNVdT36q2BE8IQWVTEQCjAgIeO9GzQ9FRGqYzQ9EKhJVM1RFRgQhT1RTHj6IAEDCwziJcNmu4gyCDvGg6p+GxIaSHCabjDm/QtO8bEnDOymdRoRvB1CZiKGUyDLXXad8ag7iNo/dZlT4ZUbcI0Uqpa6HNIEO2FrrtcF9E/w7wbe8dVAENJa2APM/U8w0AfrXnPhT4Xfi6bHVZZSaSA78VRhhwDJ2A5vFxtK96cCaPdmk5rKFMOdUpxJf4TqTrPhJJv4eJWsWFuSnLr+TGXMlHRHc7a+IsPg6RxFQS9006bBHeVchIDAf8AKDmM6CV8c7Z7RrYyqa9d0vIhrR5KTZsxoOzedu1VXqvqvFSsZIaGNB0ptAs1o2C3UklLrVA0gxrAmdm/TisZM+zqPo6fH8ZQjvL2c2q3w2EXkjdsjlKzUV1cU4tIsMrrOtc9eq57GQSNxXmnaPSUaZXPf+6dSJyu6fdAW3KfSHhd0+6jCOR27S8rxsmeU/8ACXR7T8GR27/gg7F2MRTBEHj9Vyj2VDpG+d4+a6sWVKNM48+ByltE7Apw0OcWskDxP38G6lAw0zcU3ViPxVbMH9NMW+QPFZf4fxkuJcd5Mn5rq4ECHtA2W+amTyGl8S4vETfyFnGYkh38zuwALU2hsSSLHXQb1mqdnvLYNQkTI8VvFtiLk9VvZDmuvEj7yPmSPRVg6sDK63GLje3nt9V4vLkfZ7/4ca6EYnENoMYaNR1S8PoVHtdUYADJkDw3tBEHYFlxBY4is0+CoCTs8Qa6x3GfvuTe2cHMODgHEjMPQE+9FzcA4BxpO8tX/wAag0I5x1hdcJLLA+fKLxTNFTw02gav8TjwB8LeVs3UbllGp5rS9pDHB2oewDlld/b5LMdSvBKrTOm7SaC2q2bVW1ENCqUWVbFSJqELd79UEJjvfqhKhQRr1RbUJ1KLaqQtuh6IEwaHoloUtiJ3v1VNRO9+qgFwqbqjQ7TzVIENeituh6Kpui2FQosq2KkdJpJAAJJIAA1JJgAcSqQjh76oQF7PtHsjAYCm0Yw1K+Kc0E0KTwxrATtcBPCSbwYC3/CPYvZXaBc1jK9CpTGZ1J1UOzNmMzHxcAkA6RI3raxsw8iPn+Ew76jwym1z3EwGtEk9Avb4LsnC4FubtB4qVXQ5mEZDyCBYvG/ZeG80jt74opYdz8L2XTbSDSW1MTGao8ixDHHZ+b03ryuGaYqVCS54LCXOJc4kkySTc3AUlrD7ZFtP6R7Kt8f4usYw9KlRbBjNNRwAMDaGjZaDqvUfEHawPZgrD/5qVMD/APUNDvQF3ovm+DpODLaeETNxmHigafj1O4L1nbb2jA4CkTALRUy7wxtmnh41mOZvazc8KjrXZw8S2XRobRBgzljQjdO9ZKtxGomOBmSD6g32p1euYifEdTuk3/YSkEZWgbb9DoB0kn0XHGLSR3WqoKuJpzxHv5rn7fT5W+y6FR38ofmdblM/Zc4eY81uHYm/QY16Iqejun3Qg+JM/Cen3VIhL3+/RQOWZz1YqLep57B1H+J3NPwuIyPB9eSwPf4intxJEWaebQTryRxIpHRrMIktuNWOAnfIPL7K6tQtjMGFwhrYdlNyIL9sarIMe8TcRuhoHGwCvClriJY2Npl268if7KauuStmzENzANIykgBt50nNDhwj0XBxuEygRbdqcrmxtN9x6gLrd4HSSWhrZkGY2RF7kLi4mrJkTykxbmTvK9fHbi66OfyFsr7NdV/eMFQa6OG4ixHrbrOxZS65O9VhqwafyPseB0B66eiU6Q4tOzTlsXRkjfJzYpVwPm6OdUidEZOq8aOmySrBS5UDkoljnOUBSi5QOShYTjcq5ukl1yilKFj51S5ULtUslKDY1pVuclBysuShY0FLLrlQOSy65ShY4G6KdUmUZOqUWySu78CvZ/6hhe8IDe8OumbI7u+ufJHGF56VRuFVw7MvlUdPtwVBia/fT3veOzzrY26ZYjhC6vwrinYVtbGmw7p9Cjs7ytULfLvawNLnHZ4RtXNPxFXIAqto1y0ANfiKLKtQAaA1CJcB+aVjxuPq1nB9Z5cQMrRADWN2NYwQGt4ALXCdmfaoRTEWC2YCoMxYTAeMs7jq0nqFhZUh07jPzT61KHRNiJbxB098F5yV8HpFnc7Pq+BzSILSM2lsgt9F3vi45a2GpRJpYWnbbBDp+YZ8lxPhDsOrja7WgHIxzTVqbAwHyOO1xAgbd9l6T/FHDOp4ptbRrqYaLWlpMg8gZ9VlYqhJ/kry3OK/B5inVlxhrA4W8TswIIsBvPvaluY8uI2mQXEEAAEzcpWIc0QQxpGpu6AZg2BvdIf2g4QAYGgaADN9Ii5Xmovo9tl2a8TXBIDfK2w48VzzVu6AXXOmmu82T3NJE1IH5WgA/rLfoPmslbETYWAtbQLoh49L5HNk8q38R1KvJ0I5/uE/NY8x90vsyoyclWzH2zRemdjuI3j2QeYzCQYcRIMixIkHaOKxkxpPg9MOVyXPsyGop3iQSpK1RNhtR9yrL9FneboiUobGl9RbOzCHAjbldbaQ7KBHp81zXcT91p7PrNYS4mx8M7jrceizJfHgbG3EAEsFi3zSRYuA2x19Sux2F8JvxsinFKmQcjyCQ9wvZu1kB1961fDPwtmcKuIPgmWU5Pjmb1GnQX5nau/8RfFrcFDKQa6vENb+ClLYBqRwNmesDXw3uSjHk16i2z538WdgVMC5rKkF1QF0AENygwbcTuXGcTYzNhxseJ3G3Vau2MTUrP76tUdUqP8AO5xvI2R+EbgLLn3BIGl/2PvgF3QfxpnJNPa0PzInOSZRErNHpYWZQOS5UBShY0uUzJZUShYTnXKvMlO1VyrQsc5yHMhcUMqULGBysuSgVClCxuZC510Com6tCxuZE56SrcVKFh5lAUuVAUoWNLlA5KKsJQssuutuHq5gKZ1n+WeJ/ATuK55N0+h5wZjKcwPIyPnCjSCZ7D4i7bqUf/YYd7qVCh4arqZyPr1rGo4ubeJ0aI05Q/4cxFXENr4SpUdWZ3DsRRL3F5pvpFvha918rg6DflqVkxPY9XHVH4nBMFXvfHVpNqNbVo1HXe17HES2fK4bFsp4R3Z1CrSe9px2Ip91kaQ4YWg673PcPxu2DgNgK3q2/ow5JR+zz1a7Whvic7NA3glpzHc2Nu9RlNtISTmftdsHBo2D5lW+o2m2G3J1J8zo3/sue95dc+i1jxqC+zE8jn+wVasXHggCiz1KkmAq2IxHOqbAie9Z50VuK8HydMeAC5VmSyVJW6MWMFyVMwshYfN6/NEbAHabxwQWG95PEkwBv5L1mH7Cbh8ve1AawguZlBbTJAcB/VcXXlKb2+ZoMth194Ij5r0PbnaxfRpVhetXL3OJAkZPBJ33zei1GMWmmcnkzyqUVDs7HaXxE6mO7ovmqfNU2U/6Z/F9Ndy8hXbIIPmJnNc5jMlxJ27TKlGsI3k3PM7SSl1nCL6nTgeHvYuZKnwjqjdfJ2xTnEjMdiyk3TKrrZQed/kEmV0JBsOVZKCVcpRLJKuUEqSrQDJUlCSpKULLJurlBKsFBYZKGVUqpUoByoShlQlWhYUqiVUqpQWHKslLBVypQsuVcoJVyrQCJUBQEq5ShZJWmmdHC5FvfRZJXQ7MwhfJJIp7ToXRsb9z7DWybJex3Z2Hc452uLCDeo0kEbw0j8X0+S1VarWAhmpkkk6na5x1O8lVicUAMrAAAOQAHvpqsgMfubabzsiekz5Stparg8W3J2USSST1nhryjb63BsJKuY9xp9I/8Z2tKTWqA3gx79FGzUVYL6snh9Ut28e+CtkE2tu6IJt1+n/Kwey4DzKy5KDleZSi2KLlWZKzKZlujx2HCpBlPquaTrEAbJHRYsyYHg66hKGxpbUDbgzOo0W3EOmlQkkWqaf/AGnhzXLYOK14ur/Kox/3Af8AX/dNSN8r+9CyTcAmDwgIu+3X97CVk7yTvRypqaUi6jteaDMlueqzLVEchuZXmScymZKGw3MpmSsymZKGw0uVZkvMpmShsMzK8yVmUzJQ2G5lMyVmUzJQ2G5lC5KzKZkobDMymZLzKSlE2G5lMyVmUzJRdhsqZkrMpmShsNLlWZLzKZkobG7s/Dd469mjzH6NHErqYnE2ytgAC2wAD6DTlqsfYwc9pYwXBJPGRb6QreCCQQQRrPhII37onpO1rpW0ebdlgx7g247IJ/STtaVRdHCN1oj6ROn4Zi7Sge+OEdIi1t0TEbJgy0hYa1eTuGwfT78tFGVGl9UbJjdG7TZYcNkpdSrMTaEgVVHrFG7GtcJF5vuhA99ylh0c0OZKGw3MrzJOZTMrQ2AUQqLVGAlEKiUAgtNc/wAqnzqf7VkVlxiJsNBz1SgXKkoVEoBSpKFRKASiFRKASiFRKASiFRKASiFRKASiFRKASiFRKASiFRKASiFRKASiFRKASiFRKBoweLfSeH03Q4e4I2hepxXbeFxVEuqjuMVTEggOdSrgDy2BLH6wTI2EwbeOUVIOq1s3LYPfsCyXKFRSihSoShUSgEohUSgEohUSgf/Z');
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+            color: white;
+            font-size: 15px;
+        }
+        
+        #table {
+            width: 90%;
+        }
+        
+        #table-services {
+            width: 70%;
+        }
+        
+        .classList {
+            opacity: .95;
+        }
+        
+        .form {
+            opacity: .90;
+        }
+        
+        .form-update {
+            opacity: .90;
+        }
+        
+        .close {
+            font-size: 16px;
+        }
+        
+        .close p {
+            float: right !important;
+        }
+        
+        .btn {
+            width: 150px;
+            height: 45px;
+        }
+        
+        .btn-xs {
+            height: 35px;
+            width: 100px;
+            font-size: 12px;
+        }
+        
+        #contain {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        
+        .nav {
+            font-size: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .pr {
+            width: 5px;
+            font-size: 18px;
+        }
+        
+        .other {
+            width: 20%;
+            font-size: 18px;
+        }
+        
+        .others {
+            width: 20%;
+            font-size: 18px;
+        }
+        
+        .action {
+            width: 35%-2px;
+            font-size: 18px;
+        }
+        
+        td {
+            font-size: 15px;
+        }
+        
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contain">
+        <h3 class="text-center"><img src="logo.png" alt="logo"></h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#services"> View Services </a></li>
+            <li><a data-toggle="tab" href="#home"> Add Customer </a></li>
+            <li><a data-toggle="tab" href="#menu1"> View Customers </a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="services" class="tab-pane fade in active">
+                <br>
+                <center>
+                    <table id="table-services" class="table table-bordered">
+                        <div class="text-center">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" class="action text-center">Services</th>
+                                    <th scope="col" class="action text-center">Regular</th>
+                                    <th scope="col" class="action text-center">Discount</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Hair Cut (Any length)</td>
+                                    <td>99 pesos</td>
+                                    <td>80 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Blow Dry Style</td>
+                                    <td>99 pesos</td>
+                                    <td>80 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Base Color</td>
+                                    <td>249 pesos</td>
+                                    <td>200 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Base & Partial Color</td>
+                                    <td>299 pesos</td>
+                                    <td>240 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Base & Full Color</td>
+                                    <td>349 pesos</td>
+                                    <td>280 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Partial Highlights Color</td>
+                                    <td>249 pesos</td>
+                                    <td>200 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Full Hignlights Color</td>
+                                    <td>299 pesos</td>
+                                    <td>240 pesos</td>
+                                </tr>
+                                <tr>
+                                    <td>Brazilian Blow-out</td>
+                                    <td>499 pesos</td>
+                                    <td>400 pesos</td>
+                                </tr>
+                            </thead>
+
+
+                    </table>
+                </center>
+
+                </div>
+                <div id="home" class="tab-pane fade">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 card">
+                        <br>
+                        <form action="">
+                            <div class="form-group">
+                                <label for="customer">Customer</label>
+                                <input type="text" id="customer" class="form-control" placeholder="Enter customer's name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" class="form-control" placeholder="Enter customer's age" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Services</label>
+                                <select class="form-control" id="service">
+                                <option value="none" selected>Select options</option>
+                                <option value="Hair Cut (Any length)">Hair Cut (Any length)</option>
+                                <option value="Blow Dry Style">Blow Dry Style</option>
+                                <option value="Base Color">Base Color</option>
+                                <option value="Base & Partial Color">Base & Partial Color</option>
+                                <option value="Base & Full Color">Base & Full Color</option>
+                                <option value="Partial Highlights Color">Partial Highlights Color</option>
+                                <option value="Full Hignlights Color">Full Hignlights Color</option>
+                                <option value="Brazilian Blow-out">Brazilian Blow-out</option>
+                            </select>
+                            </div>
+                            <center>
+                                <br>
+                                <button type="submit" id="submit" class="btn btn-primary save btn-outline-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                Submit
+                            </button>
+                            </center>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <div id="list">
+                        <br>
+                        <center>
+                            <table id="table" class="table table-bordered">
+                                <div class="text-center">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="pr text-center">Priority Number</th>
+                                            <th scope="col" class="other text-center">Customer</th>
+                                            <th scope="col" class="others text-center">Services</th>
+                                            <th scope="col" class="others text-center">Price</th>
+                                            <th scope="col" class="action text-center">Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="body">
+                                        <tr id="inform">
+
+                                        </tr>
+
+                                    </tbody>
+
+                            </table>
+                        </center>
+                        </div>
+                        <div class="form-update row">
+
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4 card">
+                                <br>
+                                <br>
+                                <div class="close">
+                                    <p style="color: white">x</p>
+                                </div>
+                                <form action="">
+                                    <div class="form-group">
+                                        <label for="service">Service</label>
+                                        <select class="form-control" id="update-service">
+                                    <option value="none" selected>Select options</option>
+                                    <option value="Hair Cut (Any length)">Hair Cut (Any length)</option>
+                                    <option value="Blow Dry Style">Blow Dry Style</option>
+                                    <option value="Base Color">Base Color</option>
+                                    <option value="Base & Partial Color">Base & Partial Color</option>
+                                    <option value="Base & Full Color">Base & Full Color</option>
+                                    <option value="Partial Highlights Color">Partial Highlights Color</option>
+                                    <option value="Full Hignlights Color">Full Hignlights Color</option>
+                                    <option value="Brazilian Blow-out">Brazilian Blow-out</option>
+                                </select>
+                                    </div>
+                                    <center>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary save-update btn-outline-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    Update
+                                </button>
+                                    </center>
+                                </form>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+                <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous">
+                </script>
+                <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous">
+                </script>
+
+                <script>
+                    $(document).ready(function() {
+                        var idUpdate;
+                        var priority = 1;
+                        var age;
+                        $('.form-update').hide();
+                        $('body').bootstrapMaterialDesign();
+
+                        function addRow(element) {
+                            if (priority == 1) {
+                                $("tbody tr").remove();
+                            }
+                            console.log("Adding row...")
+                            var info = ["customer", "service", "price"];
+                            var row = $("<tr>", {
+                                id: element._id,
+                                customer: element.customer,
+                                service: element.service,
+                                price: element.price
+                            });
+                            $(row).append("<th scope='col'>" + priority + "</td>")
+                            for (var i = 0; i < info.length; i++) {
+                                $(row).append($("<td>").text($(row).attr(info[i])));
+                            }
+                            $(row).append(
+                                "<td> <button type='button' class='btn btn-success btn-xs update btn-outline-success'>Change</button> <button type='button' class='btn btn-success btn-xs delete btn-outline-success'>Done</button>"
+                            );
+                            $("#body").append($(row));
+                            priority++;
+                        }
+
+                        function retrieveItem(id) {
+                            console.log(id);
+                            $.ajax({
+                                type: "get",
+                                url: "/item/retrieve/" + id,
+                                success: function(response) {
+                                    console.log(response)
+                                    $('#update-service').val(response.service);
+                                    age = response.age;
+                                },
+                                error: function(error) {
+                                    console.log("error")
+                                }
+                            })
+                        }
+
+                        function retrieveAll() {
+                            priority = 1;
+                            $("tbody tr").remove();
+                            $.ajax({
+                                type: "get",
+                                url: "/item/retrieve/all",
+                                success: function(response) {
+                                    console.log("success")
+                                    response.forEach(function(element) {
+                                        addRow(element);
+                                    })
+                                },
+                                error: function(error) {
+                                    console.log("error")
+                                }
+                            })
+                        }
+
+                        retrieveAll();
+
+                        $('#submit').on("click", function(e) {
+                            e.preventDefault();
+                            var customer = $("#customer").val();
+                            age = $('#age').val();
+                            var service = $("#service").val();
+                            var price = 0;
+                            if (customer == "" || service == "none") {
+                                Swal.fire({
+                                    type: "error",
+                                    title: 'ERROR',
+                                    text: 'Please fill in all the requirements.'
+                                })
+                            } else if (customer != "" && service != "none") {
+                                if (service == "Hair Cut (Any length)") {
+                                    price = 99;
+                                } else if (service == "Blow Dry Style") {
+                                    price = 99;
+                                } else if (service == "Base Color") {
+                                    price = 249;
+                                } else if (service == "Base & Partial Color") {
+                                    price = 299;
+                                } else if (service == "Base & Full Color") {
+                                    price = 349;
+                                } else if (service == "Partial Highlights Color") {
+                                    price = 249;
+                                } else if (service == "Full Highlights Color") {
+                                    price = 299;
+                                } else if (service == "Brazilian Blow-out") {
+                                    price = 499;
+                                }
+
+                                if (age >= 60) {
+                                    price = (price * .80);
+                                }
+                                $.ajax({
+                                    type: "put",
+                                    url: "http://localhost:3000/item/create",
+                                    crossDomain: true,
+                                    data: JSON.stringify({
+                                        customer: customer,
+                                        age: age,
+                                        service: service,
+                                        price: price
+                                    }),
+                                    success: function(response) {
+                                        if (response == "Customer existed!") {
+                                            Swal.fire({
+                                                type: "error",
+                                                title: 'ERROR',
+                                                text: response
+                                            })
+                                        } else {
+                                            response.forEach(function(element) {
+                                                addRow(element);
+                                            })
+                                            $('#customer').val('');
+                                            $('#age').val('');
+                                            $('#service').val('Select options')
+
+                                            Swal.fire({
+                                                type: "success",
+                                                title: 'SUCCESS',
+                                                text: 'Successfully created!'
+                                            })
+                                        }
+                                    },
+                                    error: function(err) {
+                                        console.log('error');
+                                    }
+                                })
+                            }
+                        });
+
+                        $(".close").click(function() {
+                            $('#list').show();
+                            $('.form-update').hide();
+                        })
+
+                        $(document).on("click", ".update", function() {
+                            $('#list').hide();
+                            $('.form-update').show();
+                            idUpdate = $(this).parent().parent().attr("id");
+                            retrieveItem(idUpdate);
+
+                            $(".save-update").on("click", function() {
+                                var service = $("#update-service").val();
+                                if (customer == "" || service == "") {
+                                    Swal.fire({
+                                        type: "error",
+                                        title: 'ERROR',
+                                        text: 'Please fill in all the requirements.'
+                                    })
+                                } else if (customer != "" && service != "") {
+
+                                    if (service == "Hair Cut (Any length)") {
+                                        price = 99;
+                                    } else if (service == "Blow Dry Style") {
+                                        price = 99;
+                                    } else if (service == "Base Color") {
+                                        price = 249;
+                                    } else if (service == "Base & Partial Color") {
+                                        price = 299;
+                                    } else if (service == "Base & Full Color") {
+                                        price = 349;
+                                    } else if (service == "Partial Highlights Color") {
+                                        price = 249;
+                                    } else if (service == "Full Highlights Color") {
+                                        price = 299;
+                                    } else if (service == "Brazilian Blow-out") {
+                                        price = 499;
+                                    }
+
+                                    if (age >= 60) {
+                                        price = (price * .80);
+                                    }
+
+                                    console.log(idUpdate);
+                                    $.ajax({
+                                        type: "post",
+                                        url: "http://localhost:3000/item/update",
+                                        crossDomain: true,
+                                        data: JSON.stringify({
+                                            id: idUpdate,
+                                            service: service,
+                                            price: price
+                                        }),
+                                        success: function(response) {
+
+                                            $("tbody tr").remove();
+                                            retrieveAll();
+                                            Swal.fire({
+                                                type: "success",
+                                                title: 'SUCCESS',
+                                                text: 'Successfully updated!'
+                                            })
+                                            $('.form-update').hide();
+                                            $('#list').show();
+                                        },
+                                        error: function(err) {
+                                            console.log('error');
+                                        }
+                                    })
+                                }
+                            });
+                        });
+
+
+                        $(document).on("click", ".delete", function() {
+                            var deleteid = $(this).parent().parent().attr("id");
+                            $(this).parents("tr").remove();
+                            $.ajax({
+                                type: "delete",
+                                url: "http://localhost:3000/item/delete",
+                                data: JSON.stringify({
+                                    id: deleteid
+                                }),
+                                success: function(response) {
+                                    retrieveAll();
+                                    console.log("delete");
+                                },
+                                error: function(er) {
+                                    console.log("error");
+                                }
+                            })
+                        });
+                    });
+                </script>
+</body>
+
+</html>
