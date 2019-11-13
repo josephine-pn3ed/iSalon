@@ -1,6 +1,7 @@
 
 const express = require('express')
 const app = express();
+var http = require('http').createServer(app);
 const path = require("path");
 const items = require("./item");
 
@@ -94,7 +95,6 @@ app.delete("/item/delete", function (req, res) {
 			console.log(p);
 		}
 		test2();
-
 	});
 	req.on('end', function () { })
 })
