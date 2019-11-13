@@ -4,6 +4,7 @@ const app = express();
 var http = require('http').createServer(app);
 const path = require("path");
 const items = require("./item");
+var port = process.env.PORT || 3000;
 
 var mongoose = require('mongoose');
 
@@ -101,6 +102,6 @@ app.delete("/item/delete", function (req, res) {
 
 app.use(express.static('assets'));
 
-http.listen(3000, function () {
+http.listen(port, function () {
 	console.log("Connected!")
 })
