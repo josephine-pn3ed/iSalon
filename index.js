@@ -101,6 +101,6 @@ app.delete("/item/delete", function (req, res) {
 
 app.use(express.static('assets'));
 
-app.listen(3000, function () {
+http.listen(3000, function () {
 	console.log("Connected!")
 })
