@@ -38,14 +38,15 @@ app.put("/item/create", function (req, res) {
 		store = JSON.parse(req);
 		const test2 = async function () {
 			const exist = await items.getByName(store.customer);
-			console.log(exist)
 			if (exist.length == 0) {
 				const data = {
 					customer: store.customer,
-					age : store.age,
+					contact_number : store.contact_number,
+					discount : store.discount,
 					service: store.service,
 					price: Number((store.price).toFixed(1))
 				}
+				console.log(data)
 				await items.addPerson(data);
 				const item = await items.getLastItem();
 				res.send(item)

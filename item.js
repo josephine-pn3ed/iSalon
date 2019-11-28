@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 var Schema = new mongoose.Schema({
    customer: {type:String, required:true},
-   age: {type:String, required:true},
+   contact_number : {type : String, required:true},
+   discount: {type:String, required:true},
    service: {type: String, required: true},
    price: {type: Number, required: true}
 });

@@ -121,42 +121,42 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Hair Cut (Any length)</td>
+                                    <td class="text-center">Hair Cut (Any length)</td>
                                     <td>99 pesos</td>
                                     <td>80 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Blow Dry Style</td>
+                                    <td class="text-center">Blow Dry Style</td>
                                     <td>99 pesos</td>
                                     <td>80 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Base Color</td>
+                                    <td class="text-center">Base Color</td>
                                     <td>249 pesos</td>
                                     <td>200 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Base & Partial Color</td>
+                                    <td class="text-center">Base & Partial Color</td>
                                     <td>299 pesos</td>
                                     <td>240 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Base & Full Color</td>
+                                    <td class="text-center">Base & Full Color</td>
                                     <td>349 pesos</td>
                                     <td>280 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Partial Highlights Color</td>
+                                    <td class="text-center">Partial Highlights Color</td>
                                     <td>249 pesos</td>
                                     <td>200 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Full Hignlights Color</td>
+                                    <td class="text-center">Full Hignlights Color</td>
                                     <td>299 pesos</td>
                                     <td>240 pesos</td>
                                 </tr>
                                 <tr>
-                                    <td>Brazilian Blow-out</td>
+                                    <td class="text-center">Brazilian Blow-out</td>
                                     <td>499 pesos</td>
                                     <td>400 pesos</td>
                                 </tr>
@@ -177,22 +177,29 @@
                                 <input type="text" id="customer" class="form-control" placeholder="Enter customer's name" required>
                             </div>
                             <div class="form-group">
-                                <label for="age">Age</label>
-                                <input type="number" id="age" class="form-control" placeholder="Enter customer's age" required>
+                                <label for="contact_number">Contact Number</label>
+                                <input type="text" id="contact_number" class="form-control" placeholder="Enter customer's contact information" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="discount">Discounted</label>
+                                <select class="form-control" id="discount">
+                                    <option value="no" selected>No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="service">Services</label>
                                 <select class="form-control" id="service">
-                                <option value="none" selected>Select options</option>
-                                <option value="Hair Cut (Any length)">Hair Cut (Any length)</option>
-                                <option value="Blow Dry Style">Blow Dry Style</option>
-                                <option value="Base Color">Base Color</option>
-                                <option value="Base & Partial Color">Base & Partial Color</option>
-                                <option value="Base & Full Color">Base & Full Color</option>
-                                <option value="Partial Highlights Color">Partial Highlights Color</option>
-                                <option value="Full Hignlights Color">Full Hignlights Color</option>
-                                <option value="Brazilian Blow-out">Brazilian Blow-out</option>
-                            </select>
+                                    <option value="none" selected>Select options</option>
+                                    <option value="Hair Cut (Any length)">Hair Cut (Any length)</option>
+                                    <option value="Blow Dry Style">Blow Dry Style</option>
+                                    <option value="Base Color">Base Color</option>
+                                    <option value="Base & Partial Color">Base & Partial Color</option>
+                                    <option value="Base & Full Color">Base & Full Color</option>
+                                    <option value="Partial Highlights Color">Partial Highlights Color</option>
+                                    <option value="Full Hignlights Color">Full Hignlights Color</option>
+                                    <option value="Brazilian Blow-out">Brazilian Blow-out</option>
+                                </select>
                             </div>
                             <center>
                                 <br>
@@ -214,13 +221,14 @@
                                         <tr>
                                             <th scope="col" class="pr text-center">Priority Number</th>
                                             <th scope="col" class="other text-center">Customer</th>
+                                            <th scope="col" class="other text-center">Contact Information</th>
                                             <th scope="col" class="others text-center">Services</th>
                                             <th scope="col" class="others text-center">Price</th>
                                             <th scope="col" class="action text-center">Action</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody id="body">
+                                    <tbody id="body" class="text-center">
                                         <tr id="inform">
 
                                         </tr>
@@ -278,7 +286,7 @@
                     $(document).ready(function() {
                         var idUpdate;
                         var priority = 1;
-                        var age;
+                        var discount;
                         $('.form-update').hide();
                         $('body').bootstrapMaterialDesign();
 
@@ -287,19 +295,20 @@
                                 $("tbody tr").remove();
                             }
                             console.log("Adding row...")
-                            var info = ["customer", "service", "price"];
+                            var info = ["customer", "contact_number", "service", "price"];
                             var row = $("<tr>", {
                                 id: element._id,
                                 customer: element.customer,
+                                contact_number : element.contact_number,
                                 service: element.service,
                                 price: element.price
                             });
-                            $(row).append("<th scope='col'>" + priority + "</td>")
+                            $(row).append("<td>" + priority + "</td>")
                             for (var i = 0; i < info.length; i++) {
                                 $(row).append($("<td>").text($(row).attr(info[i])));
                             }
                             $(row).append(
-                                "<td> <button type='button' class='btn btn-success btn-xs update btn-outline-success'>Change</button> <button type='button' class='btn btn-success btn-xs delete btn-outline-success'>Done</button>"
+                                "<td> <button type='button' class='btn btn-primary btn-xs update btn-outline-primary'>Change</button> <button type='button' class='btn btn-danger btn-xs delete btn-outline-danger'>Done</button>"
                             );
                             $("#body").append($(row));
                             priority++;
@@ -344,9 +353,10 @@
                         $('#submit').on("click", function(e) {
                             e.preventDefault();
                             var customer = $("#customer").val();
-                            age = $('#age').val();
+                            discount = $('#discount').val();
                             var service = $("#service").val();
                             var price = 0;
+                            var contact_number = $('#contact_number').val()
                             if (customer == "" || service == "none") {
                                 Swal.fire({
                                     type: "error",
@@ -372,7 +382,7 @@
                                     price = 499;
                                 }
 
-                                if (age >= 60) {
+                                if (discount  == "yes") {
                                     price = (price * .80);
                                 }
                                 $.ajax({
@@ -381,7 +391,8 @@
                                     crossDomain: true,
                                     data: JSON.stringify({
                                         customer: customer,
-                                        age: age,
+                                        contact_number : contact_number,
+                                        discount: discount,
                                         service: service,
                                         price: price
                                     }),
@@ -397,7 +408,7 @@
                                                 addRow(element);
                                             })
                                             $('#customer').val('');
-                                            $('#age').val('');
+                                            $('#discount').val('');
                                             $('#service').val('Select options')
 
                                             Swal.fire({
@@ -453,7 +464,7 @@
                                         price = 499;
                                     }
 
-                                    if (age >= 60) {
+                                    if (discount == "yes") {
                                         price = (price * .80);
                                     }
 
